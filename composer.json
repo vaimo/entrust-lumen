@@ -1,24 +1,12 @@
 {
-    "name": "zizaco/entrust",
-    "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
-    "keywords": ["laravel","illuminate","auth","roles","acl","permission"],
+    "name": "proshore/entrust-lumen",
+    "description": "This package provides a flexible way to add Role-based Permissions to Lumen",
+    "keywords": ["lumen","illuminate","auth","roles","acl","permission"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Zizaco Zizuini",
-            "email": "zizaco@gmail.com"
-        },
-        {
-            "name": "Andrew Elkins",
-            "homepage": "http://andrewelkins.com"
-        },
-        {
-            "name": "Ben Batschelet",
-            "homepage": "http://github.com/bbatsche"
-        },
-        {
-            "name": "Michele Angioni",
-            "email": "michele.angioni@gmail.com"
+            "name": "Proshore",
+            "email": "babishshrestha@gmail.com"
         }
     ],
     "require": {
@@ -38,7 +26,7 @@
             "src/commands"
         ],
         "psr-4": {
-            "Zizaco\\Entrust\\": "src/Entrust/"
+            "Proshore\\Entrust\\": "src/Entrust/"
         }
     },
     "autoload-dev": {
