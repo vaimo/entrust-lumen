@@ -34,19 +34,19 @@ Entrust-Lumen is a succinct and flexible way to add Role-based Permissions to **
 1) In order to install Lumen 5 Entrust, just add the following to your composer.json. Then run `composer update`:
 
 ```json
-"zizaco/entrust": "5.2.x-dev"
+"proshore/entrust"
 ```
 
 2) Open your `config/app.php` and add the following to the `providers` array:
 
 ```php
-Zizaco\Entrust\EntrustServiceProvider::class,
+Proshore\Entrust\EntrustServiceProvider::class,
 ```
 
 3) In the same `config/app.php` and add the following to the `aliases ` array: 
 
 ```php
-'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+'Entrust'   => Proshore\Entrust\EntrustFacade::class,
 ```
 
 4) Run the command below to publish the package config file `config/entrust.php`:
@@ -67,12 +67,12 @@ php artisan vendor:publish
 ],
 ```
 
-6)  If you want to use [Middleware](#middleware) (requires Laravel 5.1 or later) you also need to add the following:
+6)  If you want to use [Middleware](#middleware) (requires Lumen 5.1 or later) you also need to add the following:
 
 ```php
-    'role' => \Zizaco\Entrust\Middleware\EntrustRole::class,
-    'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
-    'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+    'role' => \Proshore\Entrust\Middleware\EntrustRole::class,
+    'permission' => \Proshore\Entrust\Middleware\EntrustPermission::class,
+    'ability' => \Proshore\Entrust\Middleware\EntrustAbility::class,
 ```
 
 to `routeMiddleware` array in `app/Http/Kernel.php`.
@@ -114,7 +114,7 @@ Create a Role model inside `app/models/Role.php` using the following example:
 ```php
 <?php namespace App;
 
-use Zizaco\Entrust\EntrustRole;
+use Proshore\Entrust\EntrustRole;
 
 class Role extends EntrustRole
 {
@@ -135,7 +135,7 @@ Create a Permission model inside `app/models/Permission.php` using the following
 ```php
 <?php namespace App;
 
-use Zizaco\Entrust\EntrustPermission;
+use Proshore\Entrust\EntrustPermission;
 
 class Permission extends EntrustPermission
 {
@@ -156,7 +156,7 @@ Next, use the `EntrustUserTrait` trait in your existing `User` model. For exampl
 ```php
 <?php
 
-use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Proshore\Entrust\Traits\EntrustUserTrait;
 
 class User extends Eloquent
 {
@@ -178,7 +178,7 @@ composer dump-autoload
 
 #### Soft Deleting
 
-The default migration takes advantage of `onDelete('cascade')` clauses within the pivot tables to remove relations when a parent record is deleted. If for some reason you cannot use cascading deletes in your database, the EntrustRole and EntrustPermission classes, and the HasRole trait include event listeners to manually delete records in relevant pivot tables. In the interest of not accidentally deleting data, the event listeners will **not** delete pivot data if the model uses soft deleting. However, due to limitations in Laravel's event listeners, there is no way to distinguish between a call to `delete()` versus a call to `forceDelete()`. For this reason, **before you force delete a model, you must manually delete any of the relationship data** (unless your pivot tables uses cascading deletes). For example:
+The default migration takes advantage of `onDelete('cascade')` clauses within the pivot tables to remove relations when a parent record is deleted. If for some reason you cannot use cascading deletes in your database, the EntrustRole and EntrustPermission classes, and the HasRole trait include event listeners to manually delete records in relevant pivot tables. In the interest of not accidentally deleting data, the event listeners will **not** delete pivot data if the model uses soft deleting. However, due to limitations in Lumen's event listeners, there is no way to distinguish between a call to `delete()` versus a call to `forceDelete()`. For this reason, **before you force delete a model, you must manually delete any of the relationship data** (unless your pivot tables uses cascading deletes). For example:
 
 ```php
 $role = Role::findOrFail(1); // Pull back a given role
@@ -383,7 +383,7 @@ Three directives are available for use within your Blade templates. What you giv
 @permission('manage-admins')
     <p>This is visible to users with the given permissions. Gets translated to 
     \Entrust::can('manage-admins'). The @can directive is already taken by core 
-    laravel authorization package, hence the @permission directive instead.</p>
+    Lumen authorization package, hence the @permission directive instead.</p>
 @endpermission
 
 @ability('admin,owner', 'create-post,edit-user')
@@ -505,7 +505,7 @@ If the user is not logged the return will also be `false`.
 If you encounter an error when doing the migration that looks like:
 
 ```
-SQLSTATE[HY000]: General error: 1005 Can't create table 'laravelbootstrapstarter.#sql-42c_f8' (errno: 150)
+SQLSTATE[HY000]: General error: 1005 Can't create table 'Lumenbootstrapstarter.#sql-42c_f8' (errno: 150)
     (SQL: alter table `role_user` add constraint role_user_user_id_foreign foreign key (`user_id`)
     references `users` (`id`)) (Bindings: array ())
 ```
@@ -519,7 +519,7 @@ When trying to use the EntrustUserTrait methods, you encounter the error which l
 
 then probably you don't have published Entrust assets or something went wrong when you did it.
 First of all check that you have the `entrust.php` file in your `config` directory.
-If you don't, then try `php artisan vendor:publish` and, if it does not appear, manually copy the `/vendor/zizaco/entrust/src/config/config.php` file in your config directory and rename it `entrust.php`.
+If you don't, then try `php artisan vendor:publish` and, if it does not appear, manually copy the `/vendor/Proshore/entrust/src/config/config.php` file in your config directory and rename it `entrust.php`.
 
 ## License
 
