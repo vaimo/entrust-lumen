@@ -2,7 +2,8 @@
 
 # ENTRUST (Lumen 5 Package)
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/cc4af966-809b-4fbc-b8b2-bb2850e6711e/small.png)](https://insight.sensiolabs.com/projects/cc4af966-809b-4fbc-b8b2-bb2850e6711e)
+[![Build Status](https://travis-ci.org/proshore/entrust-lumen.svg?branch=master)](https://travis-ci.org/proshore/entrust-lumen)
+
 
 Entrust-Lumen is a Fork project modified to run with Lumen. It is a succinct and flexible way to add Role-based Permissions to **Lumen 5**.
 
