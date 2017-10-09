@@ -3,6 +3,9 @@
 # ENTRUST (Lumen 5 Package)
 
 [![Build Status](https://travis-ci.org/proshore/entrust-lumen.svg?branch=master)](https://travis-ci.org/proshore/entrust-lumen)
+[![Version](https://img.shields.io/packagist/v/Proshore/entrust-lumen.svg)](https://packagist.org/packages/proshore/entrust-lumen)
+[![License](https://poser.pugx.org/proshore/entrust-lumen/license)](https://packagist.org/packages/proshore/entrust-lumen)
+[![Total Downloads](https://poser.pugx.org/proshore/entrust-lumen/downloads)](https://packagist.org/packages/proshore/entrust-lumen)
 
 
 Entrust-Lumen is a Fork project modified to run with Lumen. It is a succinct and flexible way to add Role-based Permissions to **Lumen 5**.
