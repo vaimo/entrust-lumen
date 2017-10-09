@@ -66,7 +66,8 @@ trait EntrustRoleTrait
      */
     public function users()
     {
-        return $this->belongsToMany(Config::get('auth.providers.users.model'), Config::get('entrust.role_user_table'), Config::get('entrust.role_foreign_key'), Config::get('entrust.user_foreign_key'));
+        return $this->belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'),Config::get('entrust.role_foreign_key'),Config::get('entrust.user_foreign_key'));
+       // return $this->belongsToMany(Config::get('auth.model'), Config::get('entrust.role_user_table'));
     }
 
     /**
@@ -77,7 +78,7 @@ trait EntrustRoleTrait
      */
     public function perms()
     {
-        return $this->belongsToMany(Config::get('entrust.permission'), Config::get('entrust.permission_role_table'), Config::get('entrust.role_foreign_key'), Config::get('entrust.permission_foreign_key'));
+        return $this->belongsToMany(Config::get('entrust.permission'), Config::get('entrust.permission_role_table'));
     }
 
     /**
@@ -91,7 +92,7 @@ trait EntrustRoleTrait
     {
         parent::boot();
 
-        static::deleting(function ($role) {
+        static::deleting(function($role) {
             if (!method_exists(Config::get('entrust.role'), 'bootSoftDeletes')) {
                 $role->users()->sync([]);
                 $role->perms()->sync([]);
@@ -104,8 +105,8 @@ trait EntrustRoleTrait
     /**
      * Checks if the role has a permission by its name.
      *
-     * @param string|array $name Permission name or array of permission names.
-     * @param bool $requireAll All permissions in the array are required.
+     * @param string|array $name       Permission name or array of permission names.
+     * @param bool         $requireAll All permissions in the array are required.
      *
      * @return bool
      */
