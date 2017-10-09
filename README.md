@@ -2,7 +2,7 @@
 
 # ENTRUST (Lumen 5 Package)
 
-[![Build Status](https://travis-ci.org/proshore/entrust-lumen.svg?branch=master)](https://travis-ci.org/proshore/entrust-lumen)
+[![Build Status](https://travis-ci.org/proshore/entrust-lumen.svg?branch=dev-entrust-lumen)](https://travis-ci.org/proshore/entrust-lumen)
 [![Version](https://img.shields.io/packagist/v/Proshore/entrust-lumen.svg)](https://packagist.org/packages/proshore/entrust-lumen)
 [![License](https://poser.pugx.org/proshore/entrust-lumen/license)](https://packagist.org/packages/proshore/entrust-lumen)
 [![Total Downloads](https://poser.pugx.org/proshore/entrust-lumen/downloads)](https://packagist.org/packages/proshore/entrust-lumen)
