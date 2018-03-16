@@ -77,6 +77,8 @@ These values will be used by entrust to refer to the correct user table and mode
 You can also publish the configuration for this package to further customize table names and model namespaces.  
 Just use `php artisan vendor:publish` and a `entrust.php` file will be created in your app/config directory.
 
+Note: You may need to install [lumen-vendor-publish](https://github.com/laravelista/lumen-vendor-publish) to publish the `entrust.php` file.
+
 ### User relation to roles
 
 Now generate the Entrust migration:
