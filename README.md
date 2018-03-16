@@ -38,7 +38,7 @@ Entrust-Lumen is a Fork project modified to run with Lumen. It is a succinct and
 1) In order to install Lumen 5 Entrust, just add the following to your composer.json. Then run `composer update`:
 
 ```json
-"proshore/entrust":"1.0.2"
+"proshore/entrust-lumen":"1.0.2"
 ```
 
 to your composer.json. Then run `composer install` or `composer update`.
