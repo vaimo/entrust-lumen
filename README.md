@@ -38,7 +38,7 @@ Entrust-Lumen is a Fork project modified to run with Lumen. It is a succinct and
 1) In order to install Lumen 5 Entrust, just add the following to your composer.json. Then run `composer update`:
 
 ```json
-"proshore/entrust":"1.0.2"
+"proshore/entrust-lumen":"1.0.2"
 ```
 
 to your composer.json. Then run `composer install` or `composer update`.
@@ -76,6 +76,8 @@ These values will be used by entrust to refer to the correct user table and mode
 
 You can also publish the configuration for this package to further customize table names and model namespaces.  
 Just use `php artisan vendor:publish` and a `entrust.php` file will be created in your app/config directory.
+
+Note: You may need to install [lumen-vendor-publish](https://github.com/laravelista/lumen-vendor-publish) to publish the `entrust.php` file.
 
 ### User relation to roles
 
