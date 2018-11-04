@@ -79,6 +79,11 @@ Just use `php artisan vendor:publish` and a `entrust.php` file will be created i
 
 Note: You may need to install [lumen-vendor-publish](https://github.com/laravelista/lumen-vendor-publish) to publish the `entrust.php` file.
 
+So that your custom configurations be integrated in your app, insert this line in your bootstrap/app.php
+```php
+    $app->configure('permission');
+```
+
 ### User relation to roles
 
 Now generate the Entrust migration:
